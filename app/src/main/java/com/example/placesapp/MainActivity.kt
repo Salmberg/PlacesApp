@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (auth.currentUser != null) {
-            //goToPlacesActivity()
+            goToPlacesActivity()
         }
 
 
