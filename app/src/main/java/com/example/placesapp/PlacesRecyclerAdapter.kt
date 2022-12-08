@@ -1,11 +1,15 @@
 package com.example.placesapp
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PlacesRecyclerAdapter(
     val context: PlacesActivity,
@@ -21,14 +25,18 @@ class PlacesRecyclerAdapter(
         val itemView = layoutInflater.inflate(R.layout.places, parent, false)
 
         return ViewHolder(itemView)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val place = places[position]
 
         holder.nameTextView.text = place.name
-        holder.pictureImageView.setImageDrawable(holder.pictureImageView.context.getDrawable(place.image))
+
         holder.pinImageView.setImageDrawable(holder.pinImageView.context.getDrawable(place.position))
+        holder.pictureButton.setImageDrawable(holder.pictureButton.context.getDrawable(place.image))
+
+
     }
 
     override fun getItemCount() = places.size
@@ -37,8 +45,10 @@ class PlacesRecyclerAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val nameTextView = itemView.findViewById<TextView>(R.id.nameTextView)
-        val pictureImageView = itemView.findViewById<ImageView>(R.id.pictureImageView)
+        val pictureButton = itemView.findViewById<FloatingActionButton>(R.id.pictureButton)
         val pinImageView = itemView.findViewById<ImageView>(R.id.pinImageView)
+
+
 
     }
 
