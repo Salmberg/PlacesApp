@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "961544798332",
+    "project_id": "placesapp-21fad",
+    "storage_bucket": "placesapp-21fad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961544798332:android:31eb1fbb5744c33f3e09f9",
+        "android_client_info": {
+          "package_name": "com.example.placesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961544798332-v3v1e8kecfs9kagkmui0gp1edjivvof7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCObexQlPEdPTAEzK276asWmaDqkXXj63I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961544798332-v3v1e8kecfs9kagkmui0gp1edjivvof7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
