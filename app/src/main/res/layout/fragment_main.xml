@@ -9,6 +9,7 @@
     tools:context=".ui.main.PlacesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/placesRecycleView"
         android:layout_width="335dp"
         android:layout_height="546dp"
         android:layout_marginTop="16dp"
@@ -23,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
-        android:text="Lägg till"
+        android:text="Lägg till en plats"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

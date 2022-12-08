@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (auth.currentUser != null) {
-          //goToPlacesActivity()
+            //goToPlacesActivity()
         }
 
 
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d("!!!", "create succes")
-                   //goToPlacesActivity()
+                   goToPlacesActivity()
                 } else {
                     Log.d("!!!", "user not created ${task.exception}")
                 }
