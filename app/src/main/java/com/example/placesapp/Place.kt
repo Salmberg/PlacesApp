@@ -1,6 +1,11 @@
 package com.example.placesapp
 
-class Place (var name: String, var image : Int, var position : Int) {
+import com.google.firebase.firestore.DocumentId
+
+data class Place(
+    var name: String? = "",
+    var info: String? = ""
+    ) {
 
 
 }

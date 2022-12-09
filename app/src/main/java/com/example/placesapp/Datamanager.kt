@@ -9,15 +9,15 @@ object Datamanager {
     }
 
     fun createMockData() {
-        places.add(Place("Ullådalen", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Kongabodarna", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Runmarö", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Vaxholm", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Killinge", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Ottsjön", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Åre", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Köpenhamn", R.drawable.picture_button, R.drawable.pin_button))
-        places.add(Place("Gotland", R.drawable.picture_button, R.drawable.pin_button))
+        places.add(Place("Ullådalen","lite info"))
+        places.add(Place("Kongabodarna","lite info"))
+        places.add(Place("Runmarö","lite info"))
+        places.add(Place("Vaxholm","lite info"))
+        places.add(Place("Killinge","lite info"))
+        places.add(Place("Ottsjön","lite info"))
+        places.add(Place("Åre","lite info"))
+        places.add(Place("Köpenhamn","lite info"))
+        places.add(Place("Gotland","lite info"))
 
     }
 }

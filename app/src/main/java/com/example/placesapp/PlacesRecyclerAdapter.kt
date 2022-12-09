@@ -32,9 +32,10 @@ class PlacesRecyclerAdapter(
         val place = places[position]
 
         holder.nameTextView.text = place.name
+        holder.infoTextView.text = place.info
 
-        holder.pinImageView.setImageDrawable(holder.pinImageView.context.getDrawable(place.position))
-        holder.pictureButton.setImageDrawable(holder.pictureButton.context.getDrawable(place.image))
+       // holder.pinImageView.setImageDrawable(holder.pinImageView.context.getDrawable(place.position))
+       //holder.pictureButton.setImageDrawable(holder.pictureButton.context.getDrawable(place.image))
 
 
     }
@@ -45,6 +46,7 @@ class PlacesRecyclerAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val nameTextView = itemView.findViewById<TextView>(R.id.nameTextView)
+        val infoTextView = itemView.findViewById<TextView>(R.id.infoTextView)
         val pictureButton = itemView.findViewById<FloatingActionButton>(R.id.pictureButton)
         val pinImageView = itemView.findViewById<ImageView>(R.id.pinImageView)
 
