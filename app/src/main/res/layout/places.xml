@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:background="#000000">
 
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
+        android:clickable="true"
         android:fontFamily="@font/candal"
         android:text="TextView"
         android:textColor="#B3B3B3"
@@ -31,18 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pin_button" />
 
-    <TextView
-        android:id="@+id/infoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Lite kort info om platsen"
-        android:textAlignment="center"
-        android:textColor="#B3B3B3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/pictureButton"
         android:layout_width="wrap_content"
@@ -53,4 +42,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/picture_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

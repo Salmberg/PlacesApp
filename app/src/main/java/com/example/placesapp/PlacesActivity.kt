@@ -67,7 +67,6 @@ class PlacesActivity : AppCompatActivity() {
             finish()
         }
 
-
     }
 
     @SuppressLint("NotifyDataSetChanged")

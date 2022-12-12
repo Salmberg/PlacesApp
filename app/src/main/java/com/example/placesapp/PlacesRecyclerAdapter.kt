@@ -1,12 +1,14 @@
 package com.example.placesapp
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -32,7 +34,15 @@ class PlacesRecyclerAdapter(
         val place = places[position]
 
         holder.nameTextView.text = place.name
-        holder.infoTextView.text = place.info
+
+
+        holder.apply {
+            nameTextView.setOnClickListener {
+                val intent = Intent( context, InfoActivity::class.java)
+                context.startActivity(intent)
+                Log.e("Clicked", "you clicked te text!")
+            }
+        }
 
        // holder.pinImageView.setImageDrawable(holder.pinImageView.context.getDrawable(place.position))
        //holder.pictureButton.setImageDrawable(holder.pictureButton.context.getDrawable(place.image))
@@ -45,8 +55,8 @@ class PlacesRecyclerAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+
         val nameTextView = itemView.findViewById<TextView>(R.id.nameTextView)
-        val infoTextView = itemView.findViewById<TextView>(R.id.infoTextView)
         val pictureButton = itemView.findViewById<FloatingActionButton>(R.id.pictureButton)
         val pinImageView = itemView.findViewById<ImageView>(R.id.pinImageView)
 
