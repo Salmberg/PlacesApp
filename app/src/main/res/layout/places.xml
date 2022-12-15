@@ -9,12 +9,13 @@
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
-        android:layout_height="33dp"
+        android:layout_height="47dp"
         android:clickable="true"
-        android:fontFamily="@font/candal"
+        android:fontFamily="@font/bowlby_one"
         android:text="TextView"
+        android:textAlignment="center"
         android:textColor="#B3B3B3"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pinImageView"
@@ -24,23 +25,23 @@
 
     <ImageView
         android:id="@+id/pinImageView"
-        android:layout_width="56dp"
-        android:layout_height="53dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="66dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pin_button" />
+        app:srcCompat="@drawable/namnl_s_design__3_" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageView
         android:id="@+id/pictureButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:clickable="true"
+        android:layout_width="74dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/picture_button" />
+        app:layout_constraintVertical_bias="0.483"
+        app:srcCompat="@drawable/image_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

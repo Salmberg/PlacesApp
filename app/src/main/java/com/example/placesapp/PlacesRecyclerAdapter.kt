@@ -52,7 +52,6 @@ class PlacesRecyclerAdapter(
         auth = Firebase.auth
 
 
-
         holder.apply {
             nameTextView.setOnClickListener {
                 val intent = Intent( context, InfoActivity::class.java)
@@ -69,24 +68,25 @@ class PlacesRecyclerAdapter(
                 Log.e("Clicked", "you clicked te text!")
             }
         }
-
+        holder.apply {
+            pinImageView.setOnClickListener {
+                val intent = Intent( context, MapsActivity::class.java)
+                context.startActivity(intent)
+                Log.e("Clicked", "you clicked te text!")
+            }
+        }
        //holder.pinImageView.setImageDrawable(holder.pinImageView.context.getDrawable(place.position))
        //holder.pictureButton.setImageDrawable(holder.pictureButton.context.getDrawable(place.image))
     }
 
     override fun getItemCount() = places.size
 
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
         val nameTextView = itemView.findViewById<TextView>(R.id.nameTextView)
-        val pictureButton = itemView.findViewById<FloatingActionButton>(R.id.pictureButton)
+        val pictureButton = itemView.findViewById<ImageView>(R.id.pictureButton)
         val pinImageView = itemView.findViewById<ImageView>(R.id.pinImageView)
 
-
-
     }
-
 }
 
