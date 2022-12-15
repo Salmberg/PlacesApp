@@ -20,18 +20,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class PlacesActivity : AppCompatActivity() {
+open class PlacesActivity : AppCompatActivity() {
 
     var places = mutableListOf<Place>(
-                Place("Ullådalen","lite info"),
-                Place("Kongabodarna","lite info"),
-                Place("Runmarö","lite info"),
-                Place("Vaxholm","lite info"),
-                Place("Killinge","lite info"),
-                Place("Ottsjön","lite info"),
-                Place("Åre","lite info"),
-                Place("Köpenhamn","lite info"),
-                Place("Gotland","lite info")
     )
 
     lateinit var recyclerView: RecyclerView
@@ -66,7 +57,6 @@ class PlacesActivity : AppCompatActivity() {
             auth.signOut()
             finish()
         }
-
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -111,13 +101,6 @@ class PlacesActivity : AppCompatActivity() {
                 }
         }
     }
-
-    fun goToPictureActivity() {
-        val intent = Intent(this, ImageActivity::class.java)
-        startActivity(intent)
-        Log.d("!!!", "inne i gotopicture")
-    }
-
     fun goToAddActivity() {
         val intent = Intent(this, AddPlaceActivity::class.java)
         startActivity(intent)

@@ -8,6 +8,25 @@
     tools:context=".AddPlaceActivity">
 
     <EditText
+        android:id="@+id/addUrlEditText"
+        android:layout_width="256dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:hint="URL till bilden"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#B3B3B3"
+        android:textColorHint="#B3B3B3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNameEditText" />
+
+    <EditText
         android:id="@+id/addNameEditText"
         android:layout_width="256dp"
         android:layout_height="79dp"
@@ -30,10 +49,10 @@
         android:id="@+id/addInfoEditText"
         android:layout_width="256dp"
         android:layout_height="81dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
-        android:hint="Lite kort info"
+        android:hint="Lite info om platsen"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#B3B3B3"
@@ -49,7 +68,7 @@
         android:id="@+id/addButton"
         android:layout_width="186dp"
         android:layout_height="72dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="128dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Lägg till"
         android:textColor="#B3B3B3"

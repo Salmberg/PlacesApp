@@ -17,6 +17,7 @@ class AddPlaceActivity : AppCompatActivity() {
     lateinit var db: FirebaseFirestore
     lateinit var auth: FirebaseAuth
     lateinit var addInfoEditText: EditText
+    lateinit var addUrlEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,8 @@ class AddPlaceActivity : AppCompatActivity() {
         auth = Firebase.auth
         addNameEditText = findViewById(R.id.addNameEditText)
         addInfoEditText = findViewById(R.id.addInfoEditText)
+        addUrlEditText = findViewById(R.id.addUrlEditText)
+
 
 
         val addButton = findViewById<Button>(R.id.addButton)
@@ -33,22 +36,22 @@ class AddPlaceActivity : AppCompatActivity() {
             savePlace()
         }
 
-
         val goBackButton = findViewById<ImageButton>(R.id.goBackButton)
         goBackButton.setOnClickListener {
             onBackPressed()
         }
-
     }
 
     fun savePlace() {
         val place = Place(
             name = addNameEditText.text.toString(),
             info = addInfoEditText.text.toString(),
+            image = addUrlEditText.text.toString()
         )
 
         addNameEditText.setText("")
         addInfoEditText.setText("")
+        addUrlEditText.setText("")
 
 
         val user = auth.currentUser
