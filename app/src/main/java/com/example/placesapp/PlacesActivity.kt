@@ -1,6 +1,7 @@
 package com.example.placesapp
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,14 +9,19 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.placesapp.Datamanager.places
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.FieldPath.documentId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -29,6 +35,8 @@ open class PlacesActivity : AppCompatActivity() {
     lateinit var db: FirebaseFirestore
     lateinit var auth: FirebaseAuth
     lateinit var adapter: PlacesRecyclerAdapter
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +56,7 @@ open class PlacesActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         getUserData()
 
+
         val addPlaceButton = findViewById<FloatingActionButton>(R.id.addPlaceButton)
         addPlaceButton.setOnClickListener {
             goToAddActivity()
@@ -57,7 +66,33 @@ open class PlacesActivity : AppCompatActivity() {
             auth.signOut()
             finish()
         }
+        val swipeToDeleteCallback = object : swipeToDeleteCallback () {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                places.removeAt(position)
+                recyclerView.adapter?.notifyItemRemoved(position)
+
+
+
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
     }
+
+    fun deletePlace(id:String) {
+
+        Firebase.firestore.collection("users")
+            .document(Firebase.auth.uid.toString())
+            .collection("places")
+            .document(id)
+            .delete()
+            .addOnSuccessListener { Log.d(ContentValues.TAG,"Document raderat") }
+            .addOnFailureListener { e-> Log.w(ContentValues.TAG,"Något gick fel") }
+    }
+
+
 
     @SuppressLint("NotifyDataSetChanged")
     fun getUserData() {
@@ -84,10 +119,10 @@ open class PlacesActivity : AppCompatActivity() {
                                 "!!!!",
                                 "Modified city: ${dc.document.data}"
                             )
-                            DocumentChange.Type.REMOVED -> Log.d(
-                                "!!!!",
-                                "Removed city: ${dc.document.data}"
-                            )
+                            DocumentChange.Type.REMOVED -> {
+                                val place = dc.document.toObject(Place::class.java)
+                                places.remove(place)
+                            }
                         }
                     }
                     val places = mutableListOf<Place>()
@@ -101,8 +136,17 @@ open class PlacesActivity : AppCompatActivity() {
                 }
         }
     }
+
     fun goToAddActivity() {
         val intent = Intent(this, AddPlaceActivity::class.java)
         startActivity(intent)
     }
+
+
 }
+
+
+
+
+
+

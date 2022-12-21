@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         emailView = findViewById(R.id.emailEditText)
         passwordView = findViewById(R.id.passwordEditText)
 
+
+
         val signUpButton = findViewById<Button>(R.id.signUpButton)
         signUpButton.setOnClickListener {
             signUp()

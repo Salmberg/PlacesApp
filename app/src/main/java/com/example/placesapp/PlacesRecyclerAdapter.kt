@@ -1,6 +1,7 @@
 package com.example.placesapp
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
 import android.media.Image
 import android.util.Log
@@ -63,9 +64,11 @@ class PlacesRecyclerAdapter(
 
         holder.apply {
             pictureButton.setOnClickListener {
-                val intent = Intent( context, ImageActivity::class.java)
-                context.startActivity(intent)
-                Log.e("Clicked", "you clicked te text!")
+              // val intent = Intent( context, ImageActivity::class.java)
+              // context.startActivity(intent)
+               // Log.e("Clicked", "you clicked te text!")
+                deletePlace(place.documentId.toString())
+
             }
         }
         holder.apply {
@@ -75,8 +78,18 @@ class PlacesRecyclerAdapter(
                 Log.e("Clicked", "you clicked te text!")
             }
         }
-       //holder.pinImageView.setImageDrawable(holder.pinImageView.context.getDrawable(place.position))
-       //holder.pictureButton.setImageDrawable(holder.pictureButton.context.getDrawable(place.image))
+    }
+
+
+    fun deletePlace(id:String) {
+
+        Firebase.firestore.collection("users")
+            .document(Firebase.auth.uid.toString())
+            .collection("places")
+            .document(id)
+            .delete()
+            .addOnSuccessListener { Log.d(ContentValues.TAG,"Document raderat") }
+            .addOnFailureListener { e-> Log.w(ContentValues.TAG,"Något gick fel") }
     }
 
     override fun getItemCount() = places.size
