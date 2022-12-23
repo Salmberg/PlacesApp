@@ -64,10 +64,9 @@ class PlacesRecyclerAdapter(
 
         holder.apply {
             pictureButton.setOnClickListener {
-              // val intent = Intent( context, ImageActivity::class.java)
-              // context.startActivity(intent)
-               // Log.e("Clicked", "you clicked te text!")
-                deletePlace(place.documentId.toString())
+              val intent = Intent( context, ImageActivity::class.java)
+               context.startActivity(intent)
+                Log.e("Clicked", "you clicked te text!")
 
             }
         }
@@ -80,17 +79,6 @@ class PlacesRecyclerAdapter(
         }
     }
 
-
-    fun deletePlace(id:String) {
-
-        Firebase.firestore.collection("users")
-            .document(Firebase.auth.uid.toString())
-            .collection("places")
-            .document(id)
-            .delete()
-            .addOnSuccessListener { Log.d(ContentValues.TAG,"Document raderat") }
-            .addOnFailureListener { e-> Log.w(ContentValues.TAG,"Något gick fel") }
-    }
 
     override fun getItemCount() = places.size
 
