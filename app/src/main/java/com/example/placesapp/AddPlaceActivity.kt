@@ -1,9 +1,11 @@
 package com.example.placesapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -30,7 +32,6 @@ class AddPlaceActivity : AppCompatActivity() {
         addUrlEditText = findViewById(R.id.addUrlEditText)
 
 
-
         val addButton = findViewById<Button>(R.id.addButton)
         addButton.setOnClickListener {
             savePlace()
@@ -39,6 +40,12 @@ class AddPlaceActivity : AppCompatActivity() {
         val goBackButton = findViewById<ImageButton>(R.id.goBackButton)
         goBackButton.setOnClickListener {
             onBackPressed()
+        }
+
+        val addPinButton = findViewById<ImageView>(R.id.addPinImageView)
+        addPinButton.setOnClickListener{
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -1,18 +1,24 @@
 package com.example.placesapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import androidx.appcompat.app.AppCompatActivity
+import com.example.placesapp.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.example.placesapp.databinding.ActivityMapsBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    lateinit var auth: FirebaseAuth
+    lateinit var db: FirebaseFirestore
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
@@ -21,6 +27,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        db = Firebase.firestore
+        auth = Firebase.auth
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -42,13 +51,32 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val adapter = PlacesInfoAdapter(this)
         mMap.setInfoWindowAdapter(adapter)
 
-
         //createMarkers()
         createPlaces()
 
+        val latitude = 59.40
+        val longitude = 18.32
+        val zoomLevel = 15f
+
+        val homeLatLng = LatLng(latitude, longitude)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
+        mMap.addMarker(MarkerOptions().position(homeLatLng))
+
+        setMapLongClick(mMap)
     }
 
-    fun createMarkers(){
+    private fun setMapLongClick(map:GoogleMap) {
+        map.setOnMapLongClickListener {
+                latLng ->
+            map.addMarker(
+                MarkerOptions()
+                    .position(latLng)
+
+            )
+        }
+    }
+
+   /* fun createMarkers(){
         var vaxholm = LatLng(59.40, 18.32)
 
         var marker1 = mMap.addMarker(
@@ -75,6 +103,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         )
     }
 
+    */
+
     fun createPlaces() {
 
         val p1 = PlaceInfo("Vaxholm", "Skärgårdens huvudstad", LatLng(59.40, 18.32), R.drawable.ic_baseline_home_24)
@@ -87,7 +117,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val marker = mMap.addMarker(MarkerOptions().position(place.position))
             marker?.tag = place
         }
-
     }
 }
 

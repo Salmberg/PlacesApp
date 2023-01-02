@@ -48,7 +48,6 @@ open class PlacesActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         getUserData()
 
-
         val addPlaceButton = findViewById<FloatingActionButton>(R.id.addPlaceButton)
         addPlaceButton.setOnClickListener {
             goToAddActivity()
@@ -71,11 +70,9 @@ open class PlacesActivity : AppCompatActivity() {
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
-
     }
 
     fun deletePlace(id: String) {
-
         Firebase.firestore.collection("users")
             .document(Firebase.auth.uid.toString())
             .collection("places")
@@ -123,7 +120,7 @@ open class PlacesActivity : AppCompatActivity() {
                         places.add(place)
                         Log.d("!!!!", doc.data.toString())
                     }
-                    Log.d("!!!!", "Current places: ${places}")
+                    Log.d("!!!!", "Current places: ${places.size}")
                     adapter.notifyDataSetChanged()
                 }
         }
@@ -133,8 +130,6 @@ open class PlacesActivity : AppCompatActivity() {
         val intent = Intent(this, AddPlaceActivity::class.java)
         startActivity(intent)
     }
-
-
 }
 
 
