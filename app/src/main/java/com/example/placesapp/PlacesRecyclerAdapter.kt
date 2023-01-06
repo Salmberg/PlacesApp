@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -65,7 +66,8 @@ class PlacesRecyclerAdapter(
         holder.apply {
             pictureButton.setOnClickListener {
               val intent = Intent( context, ImageActivity::class.java)
-               context.startActivity(intent)
+                intent.putExtra("picture_image", place.imageURL)
+                context.startActivity(intent)
                 Log.e("Clicked", "you clicked te text!")
 
             }

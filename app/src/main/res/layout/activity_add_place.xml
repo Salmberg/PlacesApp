@@ -30,7 +30,7 @@
         android:id="@+id/addNameEditText"
         android:layout_width="256dp"
         android:layout_height="79dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="244dp"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:hint="Namn på platsen"
@@ -105,18 +105,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.26"
         app:srcCompat="@drawable/ic_baseline_navigate_before_24" />
-
-    <ImageView
-        android:id="@+id/addPinImageView"
-        android:layout_width="72dp"
-        android:layout_height="63dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addUrlEditText"
-        app:layout_constraintVertical_bias="0.183"
-        app:srcCompat="@drawable/namnl_s_design__3_" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

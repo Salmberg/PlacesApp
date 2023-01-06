@@ -10,14 +10,3 @@
 
 
 
-mMap.setOnMapLongClickListener { latLng ->
-            dinFunktion(latLng)
-            }
-        }
-
-
-
-
-
-
-

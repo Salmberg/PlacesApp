@@ -35,6 +35,7 @@ class AddPlaceActivity : AppCompatActivity() {
         val addButton = findViewById<Button>(R.id.addButton)
         addButton.setOnClickListener {
             savePlace()
+
         }
 
         val goBackButton = findViewById<ImageButton>(R.id.goBackButton)
@@ -42,19 +43,18 @@ class AddPlaceActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        val addPinButton = findViewById<ImageView>(R.id.addPinImageView)
-        addPinButton.setOnClickListener{
-            val intent = Intent(this, MapsActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     fun savePlace() {
         val place = Place(
             name = addNameEditText.text.toString(),
             info = addInfoEditText.text.toString(),
-            image = addUrlEditText.text.toString()
+            imageURL = addUrlEditText.text.toString(),
+            longitude = intent.getDoubleExtra("longitude",0.0),
+            latitude = intent.getDoubleExtra("latitude",0.0)
         )
+
+
 
         addNameEditText.setText("")
         addInfoEditText.setText("")
@@ -69,6 +69,8 @@ class AddPlaceActivity : AppCompatActivity() {
         db.collection("users").document(user.uid)
             .collection("places").add(place)
 
-        onBackPressed()
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
+
     }
 }

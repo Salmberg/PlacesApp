@@ -2,4 +2,6 @@
     <string name="app_name">PlacesApp</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="back">Back</string>
+    <string name="title_activity_this_place_maps">thisPlaceMapsActivity</string>
+    <string name="spara">Spara</string>
 </resources>

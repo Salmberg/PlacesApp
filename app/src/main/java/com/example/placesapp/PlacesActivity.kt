@@ -127,7 +127,7 @@ open class PlacesActivity : AppCompatActivity() {
     }
 
     fun goToAddActivity() {
-        val intent = Intent(this, AddPlaceActivity::class.java)
+        val intent = Intent(this, MapsActivity::class.java)
         startActivity(intent)
     }
 }

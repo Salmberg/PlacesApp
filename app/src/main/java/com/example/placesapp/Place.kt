@@ -7,7 +7,8 @@ data class Place(
     @DocumentId var documentId: String? = null,
     var name: String? = null,
     var info: String? = null,
-    var image: String? = null,
-    var position: Double? = null
+    var imageURL: String? = null,
+    var longitude: Double? = null,
+    var latitude: Double? = null
     ) {
 }
