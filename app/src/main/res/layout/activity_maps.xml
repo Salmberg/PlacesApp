@@ -23,8 +23,25 @@
     android:layout_alignParentStart="true"
     android:padding="8dp"
     android:layout_margin="5dp"
-    android:text="@string/spara"
+    android:text="Spara"
     android:textColor="#ffffff" />
+
+   <TextView
+       android:id="@+id/textView2"
+       android:layout_width="295dp"
+       android:layout_height="126dp"
+       android:layout_marginTop="60dp"
+       android:fontFamily="@font/alfa_slab_one"
+       android:text="@string/h_ll_in_f_r_att_placera_en_mark_r_p_kartan_f_r_ditt_smultronst_lle"
+       android:textAlignment="center"
+       android:textColor="#477A3C"
+       android:textSize="20sp"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true">
+
+
+   </TextView>
+
 
 
 </RelativeLayout>

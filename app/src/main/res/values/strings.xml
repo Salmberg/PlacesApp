@@ -4,4 +4,5 @@
     <string name="back">Back</string>
     <string name="title_activity_this_place_maps">thisPlaceMapsActivity</string>
     <string name="spara">Spara</string>
+    <string name="h_ll_in_f_r_att_placera_en_mark_r_p_kartan_f_r_ditt_smultronst_lle">Håll in för att placera en markör på kartan för ditt smultronställe</string>
 </resources>

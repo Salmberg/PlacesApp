@@ -69,7 +69,7 @@ class AddPlaceActivity : AppCompatActivity() {
         db.collection("users").document(user.uid)
             .collection("places").add(place)
 
-        val intent = Intent(this, MapsActivity::class.java)
+        val intent = Intent(this, PlacesActivity::class.java)
         startActivity(intent)
 
     }

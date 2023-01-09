@@ -74,7 +74,7 @@ class PlacesRecyclerAdapter(
         }
         holder.apply {
             pinImageView.setOnClickListener {
-                val intent = Intent( context, MapsActivity::class.java)
+                val intent = Intent( context, thisPlaceMapsActivity::class.java)
                 context.startActivity(intent)
                 Log.e("Clicked", "you clicked te text!")
             }

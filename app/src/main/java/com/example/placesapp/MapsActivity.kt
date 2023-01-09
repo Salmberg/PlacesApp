@@ -57,12 +57,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val adapter = PlacesInfoAdapter(this)
         mMap.setInfoWindowAdapter(adapter)
 
-        //createMarkers()
         // createPlaces()
+        //createMarkers()
 
-        val latitude = 59.40
-        val longitude = 18.32
-        val zoomLevel = 10f
+       // val latitude = 59.40
+       // val longitude = 18.32
+        val zoomLevel = 2f
 
         val backButton = findViewById<Button>(R.id.backButton2)
         backButton.setOnClickListener {
@@ -71,7 +71,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             intent.putExtra("longitude", longitude)
             startActivity(intent)
         }
-
 
 
 
@@ -91,7 +90,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             map.addMarker(
                 MarkerOptions()
                     .position(latLng)
-
 
             )
         }
