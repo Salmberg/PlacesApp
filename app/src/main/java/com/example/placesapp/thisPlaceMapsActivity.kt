@@ -38,6 +38,8 @@ class thisPlaceMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityThisPlaceMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         val backButton = findViewById<Button>(R.id.backButton3)
         backButton.setOnClickListener {
             finish()
@@ -48,7 +50,6 @@ class thisPlaceMapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -61,9 +62,15 @@ class thisPlaceMapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
+        val zoomLevel = 6f
+
+
         val placePin = LatLng(latitude, longitude)
+
         mMap.addMarker(MarkerOptions().position(placePin).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(placePin))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(placePin, zoomLevel))
+
+
     }
 }

@@ -61,16 +61,13 @@ class AddPlaceActivity : AppCompatActivity() {
         addUrlEditText.setText("")
 
 
-        val user = auth.currentUser
-        if (user == null) {
-            return
-        }
+        val user = auth.currentUser ?: return
 
         db.collection("users").document(user.uid)
             .collection("places").add(place)
 
-        val intent = Intent(this, PlacesActivity::class.java)
-        startActivity(intent)
+       val intent = Intent(this, PlacesActivity::class.java)
+       startActivity(intent)
 
     }
 }

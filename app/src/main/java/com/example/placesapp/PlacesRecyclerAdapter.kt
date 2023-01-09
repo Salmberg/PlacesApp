@@ -43,7 +43,6 @@ class PlacesRecyclerAdapter(
 
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val place = places[position]
 
@@ -75,6 +74,9 @@ class PlacesRecyclerAdapter(
         holder.apply {
             pinImageView.setOnClickListener {
                 val intent = Intent( context, thisPlaceMapsActivity::class.java)
+                intent.putExtra("longitude", place.longitude)
+                intent.putExtra("latitude", place.latitude)
+
                 context.startActivity(intent)
                 Log.e("Clicked", "you clicked te text!")
             }

@@ -73,10 +73,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
 
-
-        val homeLatLng = LatLng(latitude, longitude)
+       val homeLatLng = LatLng(latitude, longitude)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
         mMap.addMarker(MarkerOptions().position(homeLatLng))
+
+
 
         setMapLongClick(mMap)
     }
